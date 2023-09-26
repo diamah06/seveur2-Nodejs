@@ -1,21 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
+const { Spot } = require('../db.js');
+
 /* GET */
-router.get('/', function(req, res, next) {
-  res.json({ message: "Hello, get spot!" });
+router.get('/', async (req, res, next) => {
+  try {
+      const spots = await Spot.findAll();
+      res.json({ spots });
+  } catch (error) {
+      next(error);
+  }
 });
 
-router.post('/', function(req, res, next) {
-  res.json({ message: "Hello, post spot!" });
-});
-
-router.put('/', function(req, res, next) {
-  res.json({ message: "Hello, put spot!" });
-});
-
-router.delete('/', function(req, res, next) {
-  res.json({ message: "Hello, delete spot!" });
+/* POST */
+router.post('/', async (req, res, next) => {
+  const spot = await Spot.create({
+    name: 'isspot'
+  });
+  res.json({ spot });
 });
 
 module.exports = router;

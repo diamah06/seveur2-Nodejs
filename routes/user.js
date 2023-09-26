@@ -1,21 +1,30 @@
 const express = require('express');
 const router = express.Router();
 
+const { User } = require('../db.js');
+
 /* GET */
-router.get('/', function(req, res, next) {
-  res.json({ message: "Hello, get user!" });
+router.get('/', async (req, res, next) => {
+  try {
+      const users = await User.findAll();
+      res.json({ users });
+  } catch (error) {
+      next(error);
+  }
 });
 
-router.post('/', function(req, res, next) {
-  res.json({ message: "Hello, post user!" });
-});
-
-router.put('/', function(req, res, next) {
-  res.json({ message: "Hello, put user!" });
-});
-
-router.delete('/', function(req, res, next) {
-  res.json({ message: "Hello, delete user!" });
-});
+/* POST */
+router.post('/', async (req, res, next) => {
+  const user = await User.create({
+    role: "isrole",
+    firstName: "isfirstname",
+    lastName: "islastname",
+    email: "email@myrest.com",
+    phoneNumber: "09099090",
+    password: "ispassword"
+  });
+  res.json({ user });
+  
+})
 
 module.exports = router;

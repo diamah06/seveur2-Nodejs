@@ -1,21 +1,24 @@
 const express = require('express');
 const router = express.Router();
 
+const { Room } = require('../db.js');
+
 /* GET */
-router.get('/', function(req, res, next) {
-  res.json({ message: "Hello, get room!" });
+router.get('/', async (req, res, next) => {
+  try {
+      const rooms = await Room.findAll();
+      res.json({ rooms });
+  } catch (error) {
+      next(error);
+  }
 });
 
-router.post('/', function(req, res, next) {
-  res.json({ message: "Hello, post room!" });
-});
-
-router.put('/', function(req, res, next) {
-  res.json({ message: "Hello, put room!" });
-});
-
-router.delete('/', function(req, res, next) {
-  res.json({ message: "Hello, delete room!" });
+/* POST */
+router.post('/', async (req, res, next) => {
+  const room = await Room.create({
+    name: 'isname'
+  });
+  res.json({room });
 });
 
 module.exports = router;
