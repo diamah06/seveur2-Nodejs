@@ -16,8 +16,8 @@ router.get('/', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   const reservation = await Reservation.create({
     date: Date.now(),
-    name: 'Dina',
-    note: 'rooftop',
+    name: 'mahdia',
+    note: 'isnote',
     status: 1,
     userId: 1,
     spotId: 1,
@@ -28,14 +28,23 @@ router.post('/', async (req, res, next) => {
 
 
 /* PUT */
-router.put('/', function(req, res, next) {
-  res.json({ message: "Hello, Update!" });
+router.put('/', async function (req, res, next) {
+  const id = 1;
+  const reservation = await Reservation.findByPk(id);
+  reservation.note = 'newnote'
+  await reservation.save();
+
+  res.json({reservation });
+  // res.json({message: "hello, update"});
 });
 
 
 /* DELETE */
-router.delete('/', function(req, res, next) {
-  res.json({ message: "Hello, Delete!" });
+router.delete('/', async function(req, res, next) {
+  const id = 4;
+  const reservation = await Reservation.findByPk(id);
+  await reservation.destroy();
+  res.json({ reservation });
 });
 
 

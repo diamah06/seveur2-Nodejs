@@ -21,4 +21,21 @@ router.post('/', async (req, res, next) => {
   res.json({room });
 });
 
+/* PUT */
+router.put('/', async function (req, res, next) {
+  const id = 1;
+  const room = await Room.findByPk(id);
+  room.name = 'newname'
+  await room.save();
+  res.json({room });
+  // res.json({message: "hello, update"});
+});
+
+/* DELETE */
+router.delete('/', async function (req, res, next)  {
+  const id = 3;
+  const room = await Room.findByPk(id);
+  await room.destroy();
+  res.json({room });
+});
 module.exports = router;

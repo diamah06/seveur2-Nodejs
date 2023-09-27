@@ -21,4 +21,26 @@ router.post('/', async (req, res, next) => {
   res.json({ spot });
 });
 
+/* PUT */
+router.put('/', async function (req, res, next) {
+  const id = 1;
+  const spot = await Spot.findByPk(id);
+
+  spot.note = 'newnamespot'
+  await spot.save();
+  
+  res.json({spot });
+  // res.json({message: "hello, update"});
+});
+
+
+/* DELETE */
+router.delete('/', async function (req, res, next)  {
+  const id = 1;
+  const spot = await Spot.findByPk(id);
+  await spot.destroy();
+  res.json({spot });
+});
+
+
 module.exports = router;

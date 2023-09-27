@@ -25,6 +25,27 @@ router.post('/', async (req, res, next) => {
   });
   res.json({ user });
   
-})
+});
+
+/* PUT */
+router.put('/', async function (req, res, next) {
+  const id = 1;
+  const user = await User.findByPk(id);
+
+  user.role = 'newrole'
+  await user.save();
+  
+  res.json({user });
+  // res.json({message: "hello, update"});
+});
+
+
+/* DELETE */
+router.delete('/', async function (req, res, next)  {
+  const id = 1;
+  const user = await User.findByPk(id);
+  await user.destroy();
+  res.json({user });
+});
 
 module.exports = router;
