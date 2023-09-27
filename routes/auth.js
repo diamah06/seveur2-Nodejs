@@ -11,14 +11,14 @@ router.post('/signup',async (req, res) => {
 
     const {firstName ,role, lastName, email, phoneNumber} = req.body
       
-      const user =  {
-        password: hashedPassword,
-        firstName, 
-        role,
-        lastName,
-        email,
-        phoneNumber
-      };
+    const user =  {
+      password: hashedPassword,
+      firstName, 
+      role,
+      lastName,
+      email,
+      phoneNumber
+    };
    
     await User.create(user);
     res.json({message: "utilisateur créé", user});
@@ -43,5 +43,6 @@ router.post('/signin', async (req, res) => {
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '1h' });
     res.json({message: token});
   });
+  
 
 module.exports = router;
