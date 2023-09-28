@@ -5,6 +5,24 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const SECRET_KEY = 'secretkey23456'
 
+// router.post('/signup',async (req, res) => {
+//   const salt = await bcrypt.genSalt(10);
+//   const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+//     const {firstName ,role, lastName, email, phoneNumber} = req.body
+      
+//     const user =  {
+//       password: hashedPassword,
+//       firstName, 
+//       role,
+//       lastName,
+//       email,
+//       phoneNumber
+//     };
+//     await User.create(user);
+//     res.json({message: "utilisateur créé", user});
+// })
+
 router.post('/signup',async (req, res) => {
   const salt = await bcrypt.genSalt(10);
   const hashedPassword = await bcrypt.hash(req.body.password, salt);
@@ -19,11 +37,22 @@ router.post('/signup',async (req, res) => {
       email,
       phoneNumber
     };
-   
+
+    // Vérifiez si l'adresse e-mail est déjà utilisée
+    const existingUser = await User.findOne({
+      where: { email: user.email }
+    });
+    if (existingUser) {
+      // L'adresse e-mail existe déjà
+      res.status(400);
+      res.send({
+        message: 'email already in use'
+      });
+      return;
+    }
     await User.create(user);
     res.json({message: "utilisateur créé", user});
 })
-
 router.post('/signin', async (req, res) => {
     const user = await User.findOne({
       where: {
@@ -38,6 +67,7 @@ router.post('/signin', async (req, res) => {
   
       const payload = {
         email: req.body.email,
+        id: user.id
       // Vous pouvez ajouter d'autres propriétés ici
     };
     const token = jwt.sign(payload, SECRET_KEY, { expiresIn: '1h' });

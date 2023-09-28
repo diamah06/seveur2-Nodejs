@@ -12,6 +12,27 @@ router.get('/', async (req, res, next) => {
       next(error);
   }
 });
+/* GET currentuser */
+router.get('/currentUser', async (req, res, next) => {
+  try {
+    // Get the user ID 
+    const userId = req.user.id;
+
+    // Find the user by ID
+    const currentUser = await User.findByPk(userId);
+
+    // If the user is not found, send a 404 error
+    if (!currentUser) {
+      return res.status(404).json({ error: 'user not found' });
+    }
+
+    // Return the user information
+    res.status(200).json({ currentUser });
+  } catch (error) {
+    // If there is an error, send the error message to the client
+    next(error);
+  }
+});
 
 /* POST */
 router.post('/', async (req, res, next) => {
