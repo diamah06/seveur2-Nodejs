@@ -10,18 +10,18 @@ describe('GET /api/user/currentUser', () => {
   })
 });
 
-// describe('GET /api/user/currentUser', () => {
-//     it('should return a 401 error', async () => {
-//       const res = await request(app)
-//         .get('/api/user/currentUser')
-//         .set(
-//             'Authorization', 
-//             'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsQHRlc3QuY29tIiwiaWQiOjEyLCJpYXQiOjE2OTU5MDk4MDAsImV4cCI6MTY5NTkxMzQwMH0.MZvgDYl9pNn5nSSEOgYm9Ol3TnDAUZZXDLcujkcxNow'
-//             )
-//             .expect('Content-Type', /json/)
-//             .expect(200)
-//     })
-//   });
+describe('GET /api/user/currentUser', () => {
+    it('should return a 401 error', async () => {
+      const res = await request(app)
+        .get('/api/user/currentUser')
+        .set(
+            'Authorization', 
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImVtYWlsQHRlc3QuY29tIiwiaWQiOjEyLCJpYXQiOjE2OTU5MDk4MDAsImV4cCI6MTY5NTkxMzQwMH0.MZvgDYl9pNn5nSSEOgYm9Ol3TnDAUZZXDLcujkcxNow'
+            )
+            .expect('Content-Type', /json/)
+            .expect(200)
+    })
+  });
 
   describe('POST /auth/signup', () => {
     it('should not allow signup with existing email', async () => {
