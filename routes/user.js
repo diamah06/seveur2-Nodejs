@@ -34,6 +34,26 @@ router.get('/currentUser', async (req, res, next) => {
   }
 });
 
+/* GET role admin */
+router.get('/admin', async (req, res, next) => {
+  try {
+    const users = await User.findAll({
+      where: {
+        role: 'admin',
+      },
+    });
+    res.json({ users });
+  } catch (error) {
+    if (error.name === 'UnauthorizedError') {
+      res.status(401).json({
+        error: 'Vous n\'êtes pas autorisé à accéder à cette ressource.',
+      });
+    } else {
+      next(error);
+    }
+  }
+});
+
 /* POST */
 router.post('/', async (req, res, next) => {
   const user = await User.create({
