@@ -41,9 +41,13 @@ Cette commande crée un dossier database contenant les fichiers de configuration
 La commande npx sequelize-cli init  initialise un nouveau projet Sequelize. Elle crée un dossier pour le projet et y ajoute les fichiers suivants :
 
 package.json : un fichier qui spécifie les dépendances du projet
+
 .sequelizerc : un fichier de configuration pour Sequelize
+
 models : un dossier qui contient les modèles de données
+
 migrations : un dossier qui contient les migrations de données
+
 seeds : un dossier qui contient les données initiales
 
 
