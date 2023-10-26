@@ -60,7 +60,7 @@ Le projet utilise Jest pour effectuer des tests unitaires et d'intégration. Les
 
 
 
-TabesPlus:
+TabePlus:
 
 
 <img width="967" alt="Capture d’écran 2023-10-26 à 17 16 25" src="https://github.com/diamah06/seveur2-Nodejs/assets/114236929/7615f0c6-a0b0-4f0d-b7d2-57e322c58d86">
