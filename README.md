@@ -1,6 +1,6 @@
 Projet serveur Node.js
 
-Ce repo GitHub contient le code source d'un projet serveur Node.js. Le projet implémente un système simple d'authentification et d'enregistrement d'utilisateurs.
+Ce repo GitHub contient le code source d'un projet serveur Node.js pour la réservation de restaurant. Le projet implémente un système simple d'authentification et d'enregistrement d'utilisateurs.
 
 Installation
 Pour installer le projet, vous devez suivre les étapes suivantes :
