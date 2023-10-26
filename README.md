@@ -29,7 +29,7 @@ Le projet utilise Express pour créer un serveur . Pour installer Express, vous 
 npm install express
 
 6. Intégration d'une base de données
-Le projet utilise une base de données SQLite pour stocker les données des utilisateurs.
+Le projet utilise une base de données SQLite pour stocker les données.
 
 Pour initialiser la base de données, nous avons utilisé la commande suivante :
 
