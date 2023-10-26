@@ -18,10 +18,13 @@ npm install
 
 npm start
 
-Utilisation
+Utilisation: 
+
+
 Le projet s'exécute sur le port 3000 par défaut. Vous pouvez accéder au projet à l'adresse http://localhost:3000.
 
 Express: 
+
 Le projet utilise Express pour créer un serveur . Pour installer Express, vous pouvez utiliser la commande suivante :
 npm install express
 
