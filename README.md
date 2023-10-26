@@ -18,17 +18,17 @@ npm install
 
 npm start
 
-Utilisation: 
+4. Utilisation: 
 
 
 Le projet s'exécute sur le port 3000 par défaut. Vous pouvez accéder au projet à l'adresse http://localhost:3000.
 
-Express: 
+5. Express: 
 
 Le projet utilise Express pour créer un serveur . Pour installer Express, vous pouvez utiliser la commande suivante :
 npm install express
 
-Intégration d'une base de données
+6. Intégration d'une base de données
 Le projet utilise une base de données SQLite pour stocker les données des utilisateurs.
 
 Pour initialiser la base de données, nous avons utilisé la commande suivante :
@@ -36,7 +36,7 @@ Pour initialiser la base de données, nous avons utilisé la commande suivante :
 npx sequelize-cli init
 Cette commande crée un dossier database contenant les fichiers de configuration de la base de données.
 
-Informations sur la commande npx sequelize-cli init
+7. Informations sur la commande npx sequelize-cli init :
 
 La commande npx sequelize-cli init  initialise un nouveau projet Sequelize. Elle crée un dossier pour le projet et y ajoute les fichiers suivants :
 
@@ -48,23 +48,27 @@ seeds : un dossier qui contient les données initiales
 
 
 
-Utilisation de TablePlus:
+8. Utilisation de TablePlus:
 Pour gérer la base de données SQLite du projet, nous avons utilisé TablePlus. TablePlus est un outil de gestion de bases de données graphique qui permet de créer, de modifier et de gérer des bases de données SQLite.
 
 
-Mise en place d'un système d'authentification:
+9. Mise en place d'un système d'authentification:
 Le projet utilise le module bcryptjs pour crypter les mots de passe des utilisateurs. Le système d'authentification est implémenté dans le fichier auth.js.
 
-Tests et TDD:
+10. Tests et TDD:
 Le projet utilise Jest pour effectuer des tests unitaires et d'intégration. Les tests sont situés dans le dossier __tests__.
 
 
 
 TabesPlus:
+
+
 <img width="967" alt="Capture d’écran 2023-10-26 à 17 16 25" src="https://github.com/diamah06/seveur2-Nodejs/assets/114236929/7615f0c6-a0b0-4f0d-b7d2-57e322c58d86">
 
 
 Postman:
+
+
 <img width="1440" alt="Capture d’écran 2023-10-26 à 17 43 14" src="https://github.com/diamah06/seveur2-Nodejs/assets/114236929/d4072f42-d0fc-4d42-91cc-9cbece6f0729">
 
 
