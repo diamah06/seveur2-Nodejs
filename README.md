@@ -53,7 +53,7 @@ Pour gérer la base de données SQLite du projet, nous avons utilisé TablePlus.
 
 
 9. Mise en place d'un système d'authentification:
-Le projet utilise le module bcryptjs pour crypter les mots de passe des utilisateurs. Le système d'authentification est implémenté dans le fichier auth.js.
+Le projet implémente un système d'authentification simple basé sur le hachage de mot de passe et les jetons JWT.
 
 10. Tests et TDD:
 Le projet utilise Jest pour effectuer des tests unitaires et d'intégration. Les tests sont situés dans le dossier __tests__.
